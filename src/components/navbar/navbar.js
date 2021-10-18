@@ -9,6 +9,9 @@ import { FaNetworkWired, FaBars, FaRegChartBar, FaUsers, FaBoxes, FaMoneyCheck }
 
 function Navbar (props) {
 
+    const [active, setActive] = useState(false);
+    const handleActive = () => setActive(!active);
+
     return (
         <>
             <ContainerNavbar clicked={props.clicked}>
@@ -26,25 +29,34 @@ function Navbar (props) {
                 <Separador />
                 <ContainerMenu>
                     <Menu>
-                        <MenuItem>
+                        <MenuItem 
+                            exact
+                            activeClassName="active"
+                            to="/">
                             <MenuIcon>
                                 <FaRegChartBar />
                             </MenuIcon>
                             Dashboard
                         </MenuItem>
-                        <MenuItem>
+                        <MenuItem 
+                            activeClassName="active"
+                            to="/users">
                             <MenuIcon>
                                 <FaUsers />
                             </MenuIcon>
                             Usuários
                         </MenuItem>
-                        <MenuItem>
+                        <MenuItem 
+                            activeClassName="active"
+                            to="/materials">
                             <MenuIcon>
                                 <FaBoxes />
                             </MenuIcon>
                             Materiais
                         </MenuItem>
-                        <MenuItem>
+                        <MenuItem 
+                            activeClassName="active"
+                            to="/costcenters">
                             <MenuIcon>
                                 <FaMoneyCheck />
                             </MenuIcon>

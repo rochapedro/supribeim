@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { NavLink } from "react-router-dom";
+
 import { Palete2 } from '../../styles/colors';
 
 export const ContainerSidebar = styled.nav`
@@ -10,6 +12,10 @@ export const ContainerSidebar = styled.nav`
     top: 0;
     left: ${(props) => (props.clicked ? "-100%" : "0")};
     transition: all 0.5s;
+
+    .active {
+        background-color: ${Palete2.color8};
+    }
 `;
 
 export const ContainerMenu = styled.div`
@@ -46,7 +52,8 @@ export const Menu = styled.ul`
     padding: 0px 10px 10px 10px;
 `;
 
-export const MenuItem = styled.li`
+export const MenuItem = styled(NavLink)`
+    text-decoration: none;
     width: 100%;
     heigth: 50px;
     display: flex;
