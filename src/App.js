@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+
+import Navbar from './components/navbar/navbar';
+
+import { BrowserRouter as Router, Switch, Route, useLocation } from 'react-router-dom';
+
+import Users from './pages/users/';
+import Page from './components/page/page';
+import Container from './components/container/container';
 
 function App() {
+
+  const [click, setClick] = useState(false);
+  const handleClick = () => setClick(!click);
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar clicked={click} handleClick={handleClick}/>
+     
+      <Page clicked={click}>
+          <Container>
+            <h1>Teste</h1>
+          </Container>
+        </Page>
+ 
+      
+    </>
   );
 }
 
