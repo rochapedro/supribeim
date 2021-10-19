@@ -6,11 +6,12 @@ import { Switch, Route, useLocation } from 'react-router-dom';
 
 import Dashboard from  './pages/dashboard/';
 import Users from './pages/users/';
+import NewUser from './pages/users/new_user';
 import Materials from './pages/materials';
 import CostCenters from './pages/costcenters';
 
-import Page from './components/page/page';
-import Container from './components/container/container';
+import { Page } from './components/page/page';
+import { Container } from './components/layout/layout';
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
             <Switch location={location} key={location.pathname}>
               <Route exact path="/" component={Dashboard}/>
               <Route path="/users" component={Users} />
+              <Route path="/new_user" component={NewUser} />
               <Route path="/materials" component={Materials} />
               <Route path="/costcenters" component={CostCenters} />
             </Switch>
